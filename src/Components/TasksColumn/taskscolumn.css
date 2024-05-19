@@ -1,0 +1,7 @@
+#taskcol{
+
+    width: 30%;
+    background-color: white !important;
+    height: 80%;
+    overflow-y: auto;
+}

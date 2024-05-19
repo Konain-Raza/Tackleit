@@ -1,0 +1,19 @@
+#taskcard{
+    border:  1px solid black;
+    display: flex;
+}
+
+#task-content{
+
+    width: 90%;
+    height: 100%;
+    display: flex;
+    gap: 1vh;
+    flex-direction: column;
+    background-color: red;
+}
+#task-content>h3,p{
+    margin: 0;
+    padding: 0;
+    
+}

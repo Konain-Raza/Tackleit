@@ -1,0 +1,16 @@
+#addTask{
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+padding: 20px;
+    height: 100%;
+    background-color: lightcoral;
+}
+
+#addTask>input{
+    width: 30rem;
+padding: 10px;
+border: none;
+border-radius: 10px;
+}

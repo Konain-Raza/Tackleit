@@ -1,0 +1,81 @@
+*,
+*:after,
+*:before {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Inter", sans-serif;
+	background-color: #f2f5f7;
+}
+
+/* THE CARD */
+.card {
+	display: flex;
+	flex-direction: column;
+	flex-basis: 300px;
+	flex-shrink: 0;
+	flex-grow: 0;
+	
+	background-color: #fff;
+	box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.15);
+	border-radius: 10px;
+	overflow: hidden;
+	margin: 1rem;
+}
+
+.card-img {
+	padding-bottom: 56.25%;
+	position: relative;
+}
+
+.card-img img {
+	position: absolute;
+	width: 100%;
+}
+
+
+.card-title {
+	margin: auto;
+	font-size: 1.25rem;
+	line-height: 1.33;
+	font-weight: 700;
+}
+
+.card-title.skeleton {
+	min-height: 28px;
+	border-radius: 4px;
+}
+
+.card-intro {
+	margin-top: 0.75rem;
+	line-height: 1.5;
+}
+
+.card-intro.skeleton {
+	min-height: 72px;
+	border-radius: 4px;
+}
+
+/* THE LOADING EFFECT */
+.skeleton {
+	background-color: #e2e5e7;
+	background-image: linear-gradient(
+		90deg,
+		rgba(255, 255, 255, 0),
+		rgba(255, 255, 255, 0.5),
+		rgba(255, 255, 255, 0)
+	);
+	background-size: 40px 100%;
+	background-repeat: no-repeat;
+	background-position: left -40px top 0;
+	animation: shine 1s ease infinite;
+}
+
+@keyframes shine {
+	to {
+		background-position: right -40px top 0;
+	}
+}
+
+/* Codepen specific styling - only to center the elements in the pen preview and viewport */

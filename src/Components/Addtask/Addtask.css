@@ -1,16 +1,50 @@
 #addTask{
     width: max-content;
     display: flex;
+    position: absolute;
     flex-direction: column;
-    gap: 1vh;
-padding: 20px;
-    height: 100%;
-    background-color: lightcoral;
+    gap: 3vh;
+padding: 40px;
+    height: max-content;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: white;
+    border-radius: 15px;
 }
 
 #addTask>input{
-    width: 30rem;
-padding: 10px;
+  background-color: #EAF0F7;
+
+    width: 15rem;
+padding: 15px;
 border: none;
 border-radius: 10px;
+}
+#addTask-btn{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#addTask-btn>button{
+    color: white;
+    width: 40%;
+    font-size: 1rem;
+    border-radius: 15px;
+    padding: 15px;
+    background-color: #2F2B43;
+    border: none;
+    font-weight: bolder;
+
+}
+#addTask-btn>button:hover{
+    background-color: #5f33e1;
+}
+#addTask-btn>select{
+    display: flex;
+    justify-content: center;
+    width: 40%;
 }

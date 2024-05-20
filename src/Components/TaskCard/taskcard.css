@@ -1,19 +1,77 @@
 #taskcard{
-    border:  1px solid black;
-    display: flex;
-}
-
-#task-content{
-
     width: 90%;
-    height: 100%;
     display: flex;
-    gap: 1vh;
     flex-direction: column;
-    background-color: red;
+    border-radius: 10px;
+    padding: 10px;
+    color: black;
+border: 1px solid rgba(128, 128, 128, 0.39);
+background-color: white;
+
 }
-#task-content>h3,p{
+
+#task-card-text{
+    width: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+}
+#task-card-text>h5,p{
     margin: 0;
     padding: 0;
     
+}
+#task-card-text>p{
+    font-size: 0.7rem;
+}
+#task-card-text>h5{
+font-size: 1.3rem;
+}
+#task-card-btns{
+    
+    width: 100%;
+    display: flex;
+    gap: 1vw;
+justify-content: space-between;
+}
+.btns{
+    /* width: 40%; */
+    cursor: pointer;
+    padding: 10px;
+    background-color: #2F2B43;
+    color: white;
+    font-weight: 1000;
+    border-radius: 15px;
+    border: none;
+}
+.btns>i{
+font-size: 1rem;
+    color: white;
+    font-weight: 1000;
+
+}
+#duedate{
+    height: 100%;
+    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#duedate{
+    font-size: 0.8rem;
+
+    margin: 0;
+    padding: 0;
+}
+#btns-box{
+width: max-content;
+    height: 100%;
+    display: flex;
+    gap: 0.5vw;
+    justify-content: center;
+}
+.btns>img{
+    width: 25px;
+    height: 25px;
+mix-blend-mode: color-burn;
 }

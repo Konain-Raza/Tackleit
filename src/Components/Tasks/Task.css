@@ -1,7 +1,18 @@
+@font-face {
+    font-family: mona-sans-wide;
+    src: url(../../assets/Font/MonaSans/OTF/Mona-Sans-BoldWide.otf);
+}
+@font-face {
+    font-family: mona-heading;
+    src: url(../../assets/Font/MonaSans/OTF/Mona-Sans-MediumWide.otf);
+}
+
 #tasks{
+    font-family: mona-heading;
+
     width: 100%;
     height: 100%;
-    background-color:lightblue;
+    background-color:#fcfcfca1;
 }
 
 #taskscol-row{
@@ -9,16 +20,192 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    width: 90%;
-    height: 70%;
-    background-color: aqua;
+    width: 100%;
+height: 69%;
 }
 
 header{
     width: 100%;
     height: 20%;
-    background-color: beige;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
+.heading{
+    font-family: mona-heading;
+    font-weight: 1000;
+    
+
+}
+#user-info{
+    padding: 20px;
+padding-left: 2vw;
+padding-right: 2vw;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #2f2b43;
+    color: white;
+    gap: 1vw;
+
+}
+#user-info-text{
+    width: max-content;
+    display: flex;
+    gap: 1vw;
+    align-items: center;
+
+}
+#addtaskbtn>i{
+    font-size: 1rem;
+}
+#user-info-btn>i{
+    font-size: 2rem;
+}
+#user-info-btn{
+    width: 15%;
+    padding: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+#addtaskbtn{
+    font-size: 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width:max-content;
+    background: linear-gradient(144deg, #af40ff, #5b42f3 50%, #00ddeb);
+color: white;
+font-weight: bold;
+    border: none;
+    padding: 15px;
+    border-radius: 15px;
+}
+#user-info-text>img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+
+}
+#user-info-content{
+    margin: 0;
+    width: max-content;
+    height: max-content;
+display: flex;
+flex-direction: column;
+}
+#user-info-content>h5,h3{
+    margin: 0;
+    padding: 0;
+    font-family: mona-heading;
+
+
+}
+#user-info-content>h3{
+    font-size: 2rem;
+    font-weight: 1000 !important;
+    margin: 0;
+    padding: 0;
+    font-family: mona-heading;
+
+
+}
+.col{
+    width: 30%;
+    height: 98%;
+border-radius: 10px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+
+    margin: 0;
+    padding: 0;
+}
+.col>h1{
+    font-size: 1.7rem;
+   /* margin-top: 4vh; */
+   margin-left: 2vw;
+   margin-right: auto;
+    width: 90%;
+}
+#loadings{
+    width: 100;
+}
+
+#dates{
+    padding: 0 3vw;
+    width: 100%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+ /* background-color: green; */
+    justify-content: flex-start;
+    overflow-x: scroll;
+}
+#dates::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* CSS */
+.loading-container {
+    position: relative;
+    display: flex;
+    width: 90%;
+    height: 100%;
+
+    animation: pulse 2s infinite;
+  }
+  
+  .loading-avatar {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    background-color: #94a3b8; /* Equivalent to bg-slate-400 */
+  }
+  
+  .loading-content {
+    flex: 1;
+  }
+  
+  .loading-title {
+    margin-bottom: 0.25rem;
+    height: 1.25rem;
+    width: 60%;
+    border-radius: 0.5rem;
+    background-color: #94a3b8; /* Equivalent to bg-slate-400 */
+    font-size: 1.125rem; /* Equivalent to text-lg */
+  }
+  
+  .loading-subtitle {
+    height: 1.25rem;
+    width: 90%;
+    border-radius: 0.5rem;
+    background-color: #94a3b8; /* Equivalent to bg-slate-400 */
+    font-size: 0.875rem; /* Equivalent to text-sm */
+  }
+  
+  .loading-badge {
+    position: absolute;
+    bottom: 1.25rem;
+    right: 0;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    background-color: #94a3b8; /* Equivalent to bg-slate-400 */
+  }
+  
+  /* Pulse animation */
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+  

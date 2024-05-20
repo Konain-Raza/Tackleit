@@ -6,10 +6,13 @@ background-color: #F6F6F6;
   height: 100vh;
 }
 @font-face {
-  font-family: gilroy;
-  src: url(./assets/Gilroy-Regular.ttf);
+  font-family: baynois;
+  src: url(./assets/Font/baynois-regular.otf);
 }
-
+@font-face {
+  font-family: mano-sansserif;
+  src: url(./assets/Font/MonaSans/OTF/Mona-Sans-LightWide.otf);
+}
 #root {
 width: 100%;
 height: 100%;
@@ -20,21 +23,22 @@ font-family: gilroy;
  
 }
 #main{
-background-color: purple;
+background-color: #2F2B43;
 display: flex;
 justify-content: center;
 align-items: center;
   width: 100%;
-  max-width: max-content;
   height:100%;
 }
 
 .container{
+    font-family: mona-heading;
+
   border-radius: 25px;
   padding: 10px 30px;
   /* background-color: white; */
   color: black;
-  width: max-content;
+  width: 100%;
   height: 95%;
   display: flex;
   flex-direction: column;
@@ -47,7 +51,7 @@ align-items: center;
   /* border: 1px solid rgba(0, 0, 0, 0.719); */
   border-radius:10px;
   border: none;
-  width: 18rem;
+  width:100%;
   
   /* width:  clamp(9.375rem, 4.6875rem + 25vw, 18.75rem); */
   padding: 20px;
@@ -69,7 +73,7 @@ align-items: center;
   font-weight: 600;
   font-size: 1rem;
   color: white;
-  background-color: #4461F2;
+  background-color: #2F2B43;
  }
  .google-btn{
   cursor: pointer;
@@ -87,8 +91,12 @@ align-items: center;
   color: rgb(102, 100, 100);
   border: 1px solid lightgray;
  }
- #container>h1{
-  font-size: clamp(1.25rem, 1.125rem + 1vw, 1.875rem);
+ .container>h1{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-wrap: break-word;
+  font-size: clamp(1rem, 0.225rem + 2.2vw, 1.875rem);
 }
 
 .google-btn>img{
@@ -96,16 +104,17 @@ align-items: center;
 }
 
 #hero{
-  border-radius: 70px;
-  width:85%;
+  font-family: mona-heading;
+  border-radius: 10px;
+  width:95%;
   display: flex;
   align-items: center;
-background-color: white;
+background-color: whitesmoke;
   height: max-content;
-
+align-items: center;
 margin: auto;
   gap: 1vw;
-  padding:20px;
+  padding:40px;
 }
 #change-form{
   text-decoration: none;
@@ -122,41 +131,54 @@ margin: auto;
   justify-content: center;
   align-items: center;
 }
-
+#heartimg{
+  opacity: 0.8;
+  width: 10%;
+  top: 10%;
+  left: 57%;
+  position: absolute;
+}
 #hero-content{
 margin: auto;
-
   font-weight: 500;
   z-index: 40;
   display: flex;  
   text-align: left;
-  justify-content: center;
-  max-height: max-content;
+  align-items: center;
+  justify-content: center ;
   height: 100%;
   width: 60%;
 }
 #hero-text{
+  margin-top: -10vh;
+  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50%;
-  padding: 0vh 1vw;
+  width: 48%;
+  height: max-content;
+  padding: 10px;
   
 }
 #hero-text>p{
-  z-index: 100;
-margin: 0;
-padding: 0;
+  overflow-wrap: break-word;
   width: 100%;
-  height: max-content;
-  z-index: 100;
-font-size: clamp(0.9375rem, 0.5469rem + 1.25vw, 1.25rem);
+margin: 0;
+
+padding: 0;
   
+  z-index: 100;
+  font-size: clamp(0.6rem, 0.3rem + 0.8vw, 1rem);
+  
+}
+#hairy{
+  width: clamp(10rem, 5.8rem + 33.6vw, 33rem);
+
 }
 #hero-image{
   z-index: 100;
-  width: 70%;
+  width: max-content;
   height: max-content;
   object-fit: contain;
   animation-duration: 1s;
@@ -165,16 +187,22 @@ font-size: clamp(0.9375rem, 0.5469rem + 1.25vw, 1.25rem);
 }
 
 #hero-text>h1{
+  width: 100%;
+  font-family: baynois;
   margin: 0;
   padding: 0;
-  font-size: clamp(2.75rem, 2.25rem + 3vw, 5.25rem);
-  /* background-color: aqua; */
+  font-size: clamp(2rem, 1rem + 8vw, 7rem);   
+
 }
 #hero-text>h5{
+  width: 100%;
+  max-width: fit-content;
+  padding: 0;
+  height: 10%;
   margin: 0;
   font-weight: 1000;
-  font-size: clamp(1.25rem, 0.7rem + 1vw, 1.4rem);
-  /* background-color: aqua; */
+  font-size: clamp(1rem, 0.9rem + 0.8vw, 1.5rem);
+  overflow-wrap: break-word;
 }
 
 
@@ -185,4 +213,100 @@ font-size: clamp(0.9375rem, 0.5469rem + 1.25vw, 1.25rem);
 
 
 
+@media only screen and (min-width: 100px) {
+  html,body{
+    width: 100%;
+    height: max-content;
+  }
+  #root {
+   height: max-content;
+  }
+#main{
+  max-height: max-content;
 
+  height: max-content;
+}
+  #hero{
+    padding: 10px;
+    flex-direction: column;
+    margin: 5vh 0vw;
+  height: max-content;
+  max-height: max-content;
+
+    width: 90%;
+   
+  }
+  #hero-content{
+    width: 100%;
+    height: max-content;
+    flex-direction: column;
+    }
+ #hero-text{
+  width: 100%;
+  margin: 0;
+ }
+ .container{
+  width: 90%;
+  padding: 10px;
+ }
+ #hero-form{
+  margin: auto;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  
+  }
+
+  #heartimg{
+    opacity: 0.8;
+    width: 18%;
+    top: 30%;
+    left: 60%;
+    position: absolute;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  html,body{
+    height: 100%;
+  }
+  #root {
+   height: 100%;
+  }
+  #main{
+    width: 100%;
+    height: 100%;
+  }
+    #hero{
+      flex-direction: row;
+      margin: 0;
+      height: 92%;
+      width: 95%;
+     
+    }
+    #hero-content{
+      width: 70%;
+      flex-direction: row;
+      }
+      #hero-form{
+    width: 30%;
+
+      }
+      #heartimg{
+        opacity: 0.8;
+        width: 10%;
+        top: 10%;
+        left: 57%;
+        position: absolute;
+      }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {}
+
+/* Extra larg devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {}

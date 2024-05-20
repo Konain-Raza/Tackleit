@@ -15,6 +15,7 @@
     "react-cookie": "^7.1.4",
     "react-dom": "^18.2.0",
     "react-toastify": "^10.0.5",
+  
     "universal-cookie": "^7.1.4"
   },
   "devDependencies": {

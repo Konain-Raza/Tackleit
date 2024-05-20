@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
-import "./App.css"
+import "./App.css";
 import "react-toastify/dist/ReactToastify.css";
-import heroimg from './assets/Images/hero.png'
+import heroimg from "./assets/Images/hero.png";
 import {
   signInWithPopup,
   createUserWithEmailAndPassword,
@@ -16,6 +16,7 @@ import Tasks from "./Components/Tasks/Task";
 import { GoogleAuthProvider } from "firebase/auth/cordova";
 import Task from "./Components/Tasks/Task";
 import { Cookies } from "react-cookie";
+import googleIcon from "./assets/Images/google-icon.png";
 
 function App() {
   const cookies = new Cookies();
@@ -35,25 +36,28 @@ function App() {
     try {
       const response = await signInWithPopup(auth, provider);
       const user = response.user;
-      cookies.set("auth-token", response._tokenResponse.refreshToken);
-
+      cookies.set("auth-token", user.uid);
+      console.log(user.uid);
       const userDocRef = doc(db, "users", user.uid);
       const userDoc = await getDoc(userDocRef);
 
       if (!userDoc.exists()) {
         await setDoc(userDocRef, {
-          username,
-          email,
-          todos:[]
+          username: response.user.displayName,
+          email: response.user.email,
+          photourl: response.user.photoURL,
+          todos: [],
         });
 
-
         toast.success("Successfully Logged In and User Data Stored");
+        setIsAuth(true);
+        setUserData(response.user);
       } else {
         toast.info("Successfully Logged In");
+        setIsAuth(true);
+        setUserData(response.user);
+        console.log(response.user);
       }
-
-      setIsAuth(true);
     } catch (error) {
       toast.error(`${error}`);
     }
@@ -76,7 +80,7 @@ function App() {
         );
         cookies.set("auth-token", response._tokenResponse.refreshToken);
         toast.success("Successfully Logged In");
-        setUserData(response.user.uid); 
+        setUserData(response.user.uid);
         setIsAuth(true);
       } catch (error) {
         toast.error(`${error}`);
@@ -103,11 +107,11 @@ function App() {
         setUserData(response.user.uid);
 
         await setDoc(doc(db, "users", response.user.uid), {
-          username,
-          email,
-          todos:[]
+          username: response.user.displayName,
+          email: response.user.email,
+          photourl: response.user.photoURL,
+          todos: [],
         });
-
 
         if (!response.user.emailVerified) {
           await sendEmailVerification(response.user);
@@ -124,6 +128,7 @@ function App() {
   };
 
   if (isAuth) {
+    console.log(userdata);
     return <Tasks authUser={userdata} />;
   } else {
     return (
@@ -131,15 +136,12 @@ function App() {
         <div id="hero">
           <div id="hero-content">
             <div id="hero-text">
-            <h1>Tackleit</h1>
-            <h5>Your Ultimate Taskmaster! 🏋️‍♂️✨</h5>
-           
-              <p>
-              Unleash Your Productivity Potential with Tackleit 🚀
-              </p>
+              <h1>Tackleit</h1>
+              <h5>Your Ultimate Taskmaster! 🏋️‍♂️</h5>
+              <p>Unleash Your Productivity Potential with Tackleit 🚀</p>
             </div>
-              <img src={heroimg} alt="hero image" id="hero-image" />
-           
+            <div id="hero-image"><img src={heroimg} alt="hero image" id="hairy" />
+            <img src="https://ouch-cdn2.icons8.com/TODRmmRFF6XvW1eLkUpcNTXg33zsMiPuZ9rrSgf36u8/rs:fit:368:391/czM6Ly9pY29uczgu/b3VjaC1wcm9kLmFz/c2V0cy9wbmcvMzE0/LzhkN2VkZTI1LWJj/MjAtNGUyMS05ZDAx/LWU2NDVlODI3OTUw/Ni5wbmc.png" alt="" id="heartimg"/></div>
           </div>
           <div id="hero-form">
             {currentForm === "login" && (
@@ -155,7 +157,6 @@ function App() {
                   placeholder="Email"
                   name="email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
                   required
                 />
                 <input
@@ -163,8 +164,6 @@ function App() {
                   type="password"
                   placeholder="Password"
                   name="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
                   required
                 />
                 <button className="login-btn" type="submit">
@@ -172,7 +171,7 @@ function App() {
                 </button>
                 <p>OR</p>
                 <button className="google-btn" onClick={handleGoogleSignin}>
-                  {/* <img src={googleIcon} alt="googleicon" /> */}
+                  <img src={googleIcon} alt="googleicon" />
                   Log in with Google
                 </button>
                 <h4>

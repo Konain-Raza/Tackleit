@@ -22,6 +22,7 @@
     align-items: center;
     width: 100%;
 height: 69%;
+flex-wrap: wrap;
 }
 
 header{
@@ -106,7 +107,17 @@ flex-direction: column;
 
 }
 #user-info-content>h3{
-    font-size: 2rem;
+    font-size: clamp(0.8rem, 0.56rem + 1.92vw, 2rem);
+    font-weight: 1000 !important;
+    margin: 0;
+    padding: 0;
+    font-family: mona-heading;
+
+
+}
+
+#user-info-content>h5{
+    font-size: clamp(0.5rem, 0.34rem + 1.28vw, 1.3rem);
     font-weight: 1000 !important;
     margin: 0;
     padding: 0;
@@ -208,4 +219,82 @@ border-radius: 10px;
       opacity: 0.5;
     }
   }
+  
+
+
+@media only screen and (min-width: 100px) {
+    html,body{
+      width: 100%;
+      height: max-content;
+    }
+    #tasks{
+        width: 100%;
+
+        height: max-content;
+        flex-direction: column;
+    }
+    #taskscol-row{
+        margin: auto;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: start;
+        width: 95%;
+        flex-direction: column;
+        gap: 2vh;
+    height: max-content;
+    }
+    .col{
+        width: 100%;
+        height: max-content;
+    border-radius: 10px;
+        color: black;
+        display: flex;
+        flex-direction: column;
+    
+        margin: 0;
+        padding: 0;
+    }
+    
+  }
+  
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {}
+  
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+    html,body{
+      height: 100%;
+    }
+    #tasks{
+        flex-direction: row;
+    }
+    #taskscol-row{
+        margin: auto;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: start;
+        width: 100%;
+        flex-direction: row;
+        gap: 2vh;
+    height: max-content;
+    }
+    .col{
+        width: 30%;
+        height: max-content;
+    border-radius: 10px;
+        color: black;
+        display: flex;
+        flex-direction: column;
+    
+        margin: 0;
+        padding: 0;
+    }
+   
+  }
+  
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (min-width: 992px) {}
+  
+  /* Extra larg devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (min-width: 1200px) {}
   

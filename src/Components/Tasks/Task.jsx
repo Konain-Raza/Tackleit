@@ -8,7 +8,7 @@ import TaskShedule from "../TaskShedule/TaskShedule";
 import Loading from "../Loading/Loading";
 import { Cookies } from "react-cookie";
 import { ToastContainer, toast } from "react-toastify";
-
+import avatar from "../../assets/Images/avatar.jpg"
 const Task = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   const [todos, setTodos] = useState([]);
@@ -77,7 +77,7 @@ const Task = (props) => {
           </div>
         ) : (
           <div id="user-info-text">
-            <img src={photoUrl} alt="User" />
+           <img src={photoUrl ? photoUrl : avatar} alt="User Avatar" />
             <div id="user-info-content">
               <h5>Welcome Back,</h5>
               <h3>{username}</h3>

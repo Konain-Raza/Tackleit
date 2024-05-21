@@ -37,7 +37,6 @@ function App() {
       const response = await signInWithPopup(auth, provider);
       const user = response.user;
       cookies.set("auth-token", user.uid);
-      console.log(user.uid);
       const userDocRef = doc(db, "users", user.uid);
       const userDoc = await getDoc(userDocRef);
 
@@ -56,7 +55,6 @@ function App() {
         toast.info("Successfully Logged In");
         setIsAuth(true);
         setUserData(response.user);
-        console.log(response.user);
       }
     } catch (error) {
       toast.error(`${error}`);
@@ -128,7 +126,6 @@ function App() {
   };
 
   if (isAuth) {
-    console.log(userdata);
     return <Tasks authUser={userdata} />;
   } else {
     return (

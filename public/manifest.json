@@ -1,17 +1,14 @@
 {
   "id": "netlify.app.tackleit",
-  "background_color": "#ffffff",
-  "dir": "ltr",
-  "display": "standalone",
   "name": "Tackleit",
-  "orientation": "any",
-  "scope": "/",
   "short_name": "Tackleit",
-  "start_url": "/",
+  "background_color": "#ffffff",
   "theme_color": "#ffffff",
-  "launch_handler": {
-    "client_mode": "navigate-new"
-  },
+  "start_url": "/",
+  "display": "standalone",
+  "prefer_related_applications": true, 
+  "related_applications": [],
+  "scope_extensions": ["https://tackleit.netlify.app"],
     "icons": [
         {
           "src": "windows11/SmallTile.scale-100.png",

@@ -5,13 +5,13 @@ const Loading = () => {
 
   return (
  
-	<div class="card">
-		<div class="card-img skeleton">
+	<div className="card">
+		<div className="card-img skeleton">
 		</div>
-		<div class="card-body">
-			<h2 class="card-title skeleton">
+		<div className="card-body">
+			<h2 className="card-title skeleton">
 			</h2>
-			<p class="card-intro skeleton">
+			<p className="card-intro skeleton">
 			</p>
 		</div>
 	

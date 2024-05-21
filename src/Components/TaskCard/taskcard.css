@@ -25,7 +25,7 @@ background-color: white;
     font-size: 0.7rem;
 }
 #task-card-text>h5{
-font-size: 1.3rem;
+    font-size: clamp(1rem, 0.94rem + 0.48vw, 1.3rem);
 }
 #task-card-btns{
     
@@ -35,9 +35,12 @@ font-size: 1.3rem;
 justify-content: space-between;
 }
 .btns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     /* width: 40%; */
     cursor: pointer;
-    padding: 10px;
+    padding:  clamp(0.4375rem, 0.4rem + 0.3vw, 0.625rem);
     background-color: #2F2B43;
     color: white;
     font-weight: 1000;
@@ -45,7 +48,7 @@ justify-content: space-between;
     border: none;
 }
 .btns>i{
-font-size: 1rem;
+    font-size: clamp(0.7rem, 0.64rem + 0.48vw, 1rem);
     color: white;
     font-weight: 1000;
 
@@ -58,7 +61,7 @@ font-size: 1rem;
     justify-content: center;
 }
 #duedate{
-    font-size: 0.8rem;
+    font-size: clamp(0.5rem, 0.44rem + 0.48vw, 0.8rem);
 
     margin: 0;
     padding: 0;
@@ -69,9 +72,4 @@ width: max-content;
     display: flex;
     gap: 0.5vw;
     justify-content: center;
-}
-.btns>img{
-    width: 25px;
-    height: 25px;
-mix-blend-mode: color-burn;
 }

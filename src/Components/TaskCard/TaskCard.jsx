@@ -48,7 +48,7 @@ const TaskCard = ({ title, task, userid }) => {
       await updateDoc(userDocRef, { todos });
 
     } catch (error) {
-      toast.error("Error updating todo: ", error);
+      toast.error("Error updating todo: " + error);
     }
   };
 

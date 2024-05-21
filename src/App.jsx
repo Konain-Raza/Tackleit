@@ -221,8 +221,8 @@ function App() {
                 </button>
                 <p>OR</p>
                 <button className="google-btn" onClick={handleGoogleSignin}>
-                  {/* <img src={googleIcon} alt="googleicon" />  */}
-                  Sign up with Google
+                  <img src={googleIcon} alt="googleicon" /> 
+                 <span> Sign up with Google</span>
                 </button>
                 <h4>
                   Already have an account?{" "}

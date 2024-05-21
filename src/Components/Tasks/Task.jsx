@@ -21,12 +21,10 @@ const Task = (props) => {
   const [loadingDoneTasks, setLoadingDoneTasks] = useState(true);
   const [showAddTask, setShowAddTask] = useState(false);
   const [loadingDates, setLoadingDates] = useState(true);
-const handlesignout  = ()=>{
-  cookies.remove("auth-token");
-  setIsAuth(false);
-  window.location.reload();
-  
-}
+  const handlesignout = () => {
+    cookies.remove("auth-token");
+    window.location.reload();
+  };
   useEffect(() => {
     if (!uidFromCookie) {
       toast.error("UID is missing in the cookie.");
@@ -70,11 +68,11 @@ const handlesignout  = ()=>{
     <div id="tasks">
       <div id="user-info">
         {isLoading ? (
-          <div class="loading-container">
-            <div class="loading-avatar"></div>
-            <div class="loading-content">
-              <div class="loading-title"></div>
-              <div class="loading-subtitle"></div>
+          <div className="loading-container">
+            <div className="loading-avatar"></div>
+            <div className="loading-content">
+              <div className="loading-title"></div>
+              <div className="loading-subtitle"></div>
             </div>
           </div>
         ) : (
@@ -88,14 +86,17 @@ const handlesignout  = ()=>{
         )}
         <div id="user-info-btn">
           <button id="addtaskbtn" onClick={handleAddTaskClick}>
-            <i class="fa-solid fa-plus"></i>
-            Add Task
+            <i className="fa-solid fa-plus"></i>
+            <span>Add Task</span>
           </button>
-          <i class="fa-solid fa-arrow-right-from-bracket" onClick={handlesignout}></i>
-
+          <i
+            className="fa-solid fa-arrow-right-from-bracket"
+            onClick={handlesignout}
+          ></i>
         </div>
       </div>
-      <div id="dates">
+<div id="scroll-div">
+<div id="dates">
         {loadingDates ? (
           <div
             className="loading-container"
@@ -106,7 +107,7 @@ const handlesignout  = ()=>{
               justifyContent: "center",
             }}
           >
-            <div class="loading-avatar"></div>
+            <div className="loading-avatar"></div>
           </div>
         ) : (
           <TaskShedule dates={uniqueDates} id="dates" />
@@ -153,6 +154,7 @@ const handlesignout  = ()=>{
           </div>
         )}
       </div>
+</div>
 
       {showAddTask && <Addtask userid={uidFromCookie} />}
       <ToastContainer

@@ -4,7 +4,7 @@
     position: absolute;
     flex-direction: column;
     gap: 3vh;
-padding: 40px;
+padding: 20px;
     height: max-content;
     left: 0;
     right: 0;
@@ -18,7 +18,7 @@ padding: 40px;
 #addTask>input{
   background-color: #EAF0F7;
 
-    width: 15rem;
+    width: clamp(10rem, 9rem + 8vw, 15rem);
 padding: 15px;
 border: none;
 border-radius: 10px;

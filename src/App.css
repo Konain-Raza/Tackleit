@@ -87,8 +87,8 @@ align-items: center;
   height: max-content;
   padding: 10px;
   font-weight: 600;
-  font-size: 1rem;
   color: rgb(102, 100, 100);
+  font-size: 1rem;
   border: 1px solid lightgray;
  }
  .container>h1{
@@ -98,9 +98,8 @@ align-items: center;
   overflow-wrap: break-word;
   font-size: clamp(1rem, 0.225rem + 2.2vw, 1.875rem);
 }
-
 .google-btn>img{
-  width:10%;
+  width:2rem;
 }
 
 #hero{
@@ -275,7 +274,7 @@ padding: 0;
     height: 100%;
   }
   #root {
-   height: max-content;
+   height: 100%;
   }
   #main{
     width: 100%;

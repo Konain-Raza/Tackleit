@@ -6,7 +6,7 @@
   "theme_color": "#ffffff",
   "start_url": "/",
   "display": "standalone",
-  "prefer_related_applications": true, 
+  "prefer_related_applications": false, 
   "related_applications": [],
   "scope_extensions": ["https://tackleit.netlify.app"],
     "icons": [
@@ -136,7 +136,9 @@
         },
         {
           "src": "windows11/SplashScreen.scale-125.png",
-          "sizes": "775x375"
+          "sizes": "775x375",
+          "purpose": "maskable"
+
         },
         {
           "src": "windows11/SplashScreen.scale-150.png",
@@ -339,10 +341,7 @@
           "src": "android/android-launchericon-192-192.png",
           "sizes": "192x192"
         },
-        {
-          "src": "android/android-launchericon-144-144.png",
-          "sizes": "144x144"
-        },
+        
         {
           "src": "android/android-launchericon-96-96.png",
           "sizes": "96x96"
@@ -427,7 +426,7 @@
           "src": "ios/128.png",
           "sizes": "128x128"
         },
-    
+ 
         {
           "src": "ios/152.png",
           "sizes": "152x152"
@@ -454,8 +453,7 @@
         },
         {
           "src": "ios/512.png",
-          "sizes": "512x512",
-          "purpose": "maskable"
+          "sizes": "512x512"
         },
         {
           "src": "ios/1024.png",

@@ -231,9 +231,13 @@ border-radius: 10px;
 
 
 @media only screen and (min-width: 100px) {
+    
     html,body{
       width: 100vw;
       height: max-content;
+    }
+    #scroll-div{
+     padding-bottom: 10vh;
     }
     #tasks{
         width: 100%;
@@ -263,10 +267,11 @@ border-radius: 10px;
         padding: 0;
     }
     #user-info{
+        position: fixed;
         padding: 20px;
     padding-left: 2vw;
     padding-right: 2vw;
-    height: 20%;
+    height: max-content;
         width: 100%;
         display: flex;
         align-items: center;
@@ -308,6 +313,9 @@ border-radius: 10px;
         align-items: center;
         justify-content: space-between;
     }
+    #scroll-div::-webkit-scrollbar{
+        display: none;
+       }
   }
   
   /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -315,6 +323,11 @@ border-radius: 10px;
   
   /* Medium devices (landscape tablets, 768px and up) */
   @media only screen and (min-width: 768px) {
+    #scroll-div{
+        padding-bottom: 10vh;
+       }
+
+    
     html,body{
       height: 100%;
     }

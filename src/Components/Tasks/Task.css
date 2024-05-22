@@ -41,7 +41,7 @@ header{
 }
 #scroll-div{
     width: 100%;
-    height: 80%;
+    height: 100%;
     overflow-y: scroll;
 }
 #user-info{
@@ -323,10 +323,12 @@ border-radius: 10px;
   
   /* Medium devices (landscape tablets, 768px and up) */
   @media only screen and (min-width: 768px) {
-    #scroll-div{
-        padding-bottom: 10vh;
-       }
-
+    
+#scroll-div{
+    width: 100%;
+    height: 95%;
+    overflow-y: scroll;
+}
     
     html,body{
       height: 100%;

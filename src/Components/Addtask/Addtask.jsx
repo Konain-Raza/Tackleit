@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Addtask.css";
 import { updateDoc, arrayUnion, doc, getDoc } from "firebase/firestore";
 import { db } from "../../../firebase-config";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import Cookies from "universal-cookie";
 const Addtask = (props) => {
+  const [userid, setuseruid] = useState(props.userid);
+  const cookies = new Cookies();
+  const uidFromCookie = cookies.get("auth-token");
   const handleAddTask = async (e) => {
     e.preventDefault();
     const data = new FormData(e.target);
@@ -22,7 +25,7 @@ const Addtask = (props) => {
 
     if (taskinput.length !== 0) {
       try {
-        const userDocRef = doc(db, "users", props.userid);
+        const userDocRef = doc(db, "users", uidFromCookie);
         const userDocSnapshot = await getDoc(userDocRef);
 
         if (!userDocSnapshot.exists()) {
@@ -37,7 +40,7 @@ const Addtask = (props) => {
         const taskAlreadyExists = todos.some((task) => task.task === taskinput);
 
         if (taskAlreadyExists) {
-          toast.warning("Task already exists");
+          toast.error("Task already exists");
           return;
         }
 
@@ -57,7 +60,7 @@ const Addtask = (props) => {
         });
         toast.success("Todo added successfully");
       } catch (error) {
-        toast.error("Error adding todo: " + error.message);
+        toast.error(`Error adding todo: ${error.message}`);
       }
     } else {
       toast.error("Cannot accept blank task");
@@ -79,7 +82,7 @@ const Addtask = (props) => {
           <button type="submit">Add</button>
         </div>
       </form>
-      <ToastContainer
+      {/* <ToastContainer
         position="top-center"
         autoClose={5000}
         hideProgressBar={false}
@@ -90,7 +93,7 @@ const Addtask = (props) => {
         draggable
         pauseOnHover
         theme="light"
-      />
+      /> */}
     </div>
   );
 };

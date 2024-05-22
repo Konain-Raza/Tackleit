@@ -137,7 +137,7 @@ const TaskCard = ({ title, task, userid }) => {
           </button>
         </div>
       </div>
-      <ToastContainer
+      {/* <ToastContainer
         position="top-center"
         autoClose={5000}
         hideProgressBar={false}
@@ -148,7 +148,7 @@ const TaskCard = ({ title, task, userid }) => {
         draggable
         pauseOnHover
         theme="light"
-      />
+      /> */}
     </div>
   );
 };

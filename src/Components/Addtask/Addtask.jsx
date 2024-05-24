@@ -19,7 +19,7 @@ const Addtask = (props) => {
     const taskformat = {
       task: taskinput,
       status: option,
-      dueTime: dueTime ? new Date(dueTime).toISOString() : null,
+      dueTime: dueTime ? new Date(dueTime).toISOString() : new Date(),
     };
     e.target.reset();
 

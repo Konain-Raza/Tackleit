@@ -23,6 +23,11 @@ const Addtask = (props) => {
     };
     e.target.reset();
 
+    if (!taskinput || !option || !dueTime) {
+      toast.error("All fields are required"); // Change here
+      return;
+    }
+
     if (taskinput.length !== 0) {
       try {
         const userDocRef = doc(db, "users", uidFromCookie);
@@ -30,6 +35,8 @@ const Addtask = (props) => {
 
         if (!userDocSnapshot.exists()) {
           toast.error("User document does not exist");
+          cookies.remove("auth-token");
+          window.location.reload();
           return;
         }
 

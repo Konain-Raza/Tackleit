@@ -16,6 +16,8 @@
 }
 
 #taskscol-row{
+    padding-top: 4rem;
+
     margin: auto;
     display: flex;
     justify-content: space-evenly;
@@ -246,6 +248,8 @@ border-radius: 10px;
         flex-direction: column;
     }
     #taskscol-row{
+    padding-top: 3rem;
+
         margin: auto;
         display: flex;
         justify-content: space-evenly;
@@ -338,6 +342,8 @@ border-radius: 10px;
         flex-direction: row;
     }
     #taskscol-row{
+    padding-top: 4rem;
+
         margin: auto;
         display: flex;
         justify-content: space-evenly;

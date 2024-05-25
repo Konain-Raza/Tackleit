@@ -16,7 +16,6 @@ const TasksCard = (props) => {
     }
   });
 
-
   return (
     <div id="taskcol">
       {sortedTasks.map((task, index) => (
@@ -24,7 +23,7 @@ const TasksCard = (props) => {
           key={index}
           title={props.title}
           task={task}
-          alltodos={[props]}
+          alltodos={props.alltodos} // Pass props.alltodos directly
           index={index}
           userid={props.userid}
         />

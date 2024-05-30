@@ -57,15 +57,16 @@ const Addtask = (props) => {
           const today = new Date();
           today.setHours(0, 0, 0, 0); // Set the time to the start of the day
 
+        await updateDoc(userDocRef, {
+          todos: arrayUnion(taskformat),
+        });
+        toast.success("Todo added successfully");
+
           if (dueDate < today) {
             toast.error("The due date is in the past.");
           }
         }
 
-        await updateDoc(userDocRef, {
-          todos: arrayUnion(taskformat),
-        });
-        toast.success("Todo added successfully");
       } catch (error) {
         toast.error(`Error adding todo: ${error.message}`);
       }
@@ -89,18 +90,7 @@ const Addtask = (props) => {
           <button type="submit">Add</button>
         </div>
       </form>
-      {/* <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      /> */}
+
     </div>
   );
 };

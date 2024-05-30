@@ -2,34 +2,44 @@ import React from "react";
 import "./taskshedule.css";
 
 const TaskDates = ({ dates }) => {
-  console.log("Dates prop:", dates); // Add this line to log the dates prop
-
   if (!dates || dates.length === 0) {
     return <div>No dates available</div>;
   }
 
-  const formatDate = (dateString) => {
+  const isValidDate = (dateString) => {
     const date = new Date(dateString);
+    return !isNaN(date);
+  };
 
-    const day = date.toLocaleDateString("en-US", {
-      day: "numeric",
-    });
+  const formatDate = (dateString) => {
+    if (!isValidDate(dateString)) {
+      console.error('Invalid date:', dateString);
+      return { day: 'Invalid', month: 'Date', isToday: false };
+    }
 
-    const month = date.toLocaleDateString("en-US", {
-      month: "long",
-    });
-
+    const date = new Date(dateString);
+    const day = date.toLocaleDateString("en-US", { day: "numeric" });
+    const month = date.toLocaleDateString("en-US", { month: "long" });
     const today = new Date().toISOString().split("T")[0];
-
     const formattedDate = date.toISOString().split("T")[0];
 
     return { day, month, isToday: today === formattedDate };
   };
 
-  const uniqueDateParts = [...new Set(dates.map((date) => date.slice(0, 10)))];
+  const uniqueDateParts = [...new Set(dates.map((date) => {
+    if (typeof date !== 'string') {
+      date = date.toString();
+    }
+    return date.slice(0, 10);
+  }))];
 
   const today = new Date().toISOString().split("T")[0];
-  const isTodayWithTask = dates.some((date) => date.slice(0, 10) === today);
+  const isTodayWithTask = dates.some((date) => {
+    if (typeof date !== 'string') {
+      date = date.toString();
+    }
+    return date.slice(0, 10) === today;
+  });
 
   return (
     <div>

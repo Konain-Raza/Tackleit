@@ -5,7 +5,6 @@ import dlticon from "../../assets/Images/dlt-icon.gif";
 import "./taskcard.css";
 import { ToastContainer, toast } from "react-toastify";
 
-
 const TaskCard = ({ title, task, userid }) => {
   const [isTimeUp, setIsTimeUp] = useState(false);
 
@@ -21,8 +20,8 @@ const TaskCard = ({ title, task, userid }) => {
 
     checkTime();
 
-    const timer = setInterval(checkTime, 60000); // Check every minute
-    return () => clearInterval(timer);
+    // const timer = setInterval(checkTime, 60000); // Check every minute
+    // return () => clearInterval(timer);
   }, [task.dueTime]);
 
   const handleTaskCompletion = async () => {
@@ -39,14 +38,15 @@ const TaskCard = ({ title, task, userid }) => {
       const taskIndex = todos.findIndex((t) => t.task === task.task);
 
       if (taskIndex === -1 || todos[taskIndex].status === "done") {
-        toast.error(`Task with content "${task.task}" either not found or already marked as "done"`);
+        toast.error(
+          `Task with content "${task.task}" either not found or already marked as "done"`
+        );
         return;
       }
 
       todos[taskIndex].status = "done";
 
       await updateDoc(userDocRef, { todos });
-
     } catch (error) {
       toast.error("Error updating todo: " + error);
     }
@@ -66,7 +66,9 @@ const TaskCard = ({ title, task, userid }) => {
       const taskIndex = todos.findIndex((t) => t.task === task.task);
 
       if (taskIndex === -1 || todos[taskIndex].status === "ongoing") {
-        toast.error(`Task with content "${task.task}" either not found or already marked as "ongoing"`);
+        toast.error(
+          `Task with content "${task.task}" either not found or already marked as "ongoing"`
+        );
         return;
       }
 
@@ -102,8 +104,7 @@ const TaskCard = ({ title, task, userid }) => {
   };
 
   return (
-    <div id="taskcard" style={{ backgroundColor: isTimeUp ? "red" : "white", color: isTimeUp ? "white" : "black" }}>
-
+    <div id="taskcard">
       <div id="task-card-text">
         <h5>{task.task}</h5>
       </div>
@@ -116,8 +117,7 @@ const TaskCard = ({ title, task, userid }) => {
               month: "short",
               hour: "numeric",
               minute: "numeric",
-              hour12: true, 
-              
+              hour12: true,
             })}
           </p>
         )}
@@ -137,18 +137,6 @@ const TaskCard = ({ title, task, userid }) => {
           </button>
         </div>
       </div>
-      {/* <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      /> */}
     </div>
   );
 };

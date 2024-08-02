@@ -28,7 +28,7 @@ const TaskDates = ({ dates }) => {
 
   const uniqueDateParts = [...new Set(dates.map((date) => {
     if (typeof date !== 'string') {
-      date = date.toString();
+      date = date.toISOString();
     }
     return date.slice(0, 10);
   }))];
@@ -36,13 +36,13 @@ const TaskDates = ({ dates }) => {
   const today = new Date().toISOString().split("T")[0];
   const isTodayWithTask = dates.some((date) => {
     if (typeof date !== 'string') {
-      date = date.toString();
+      date = date.toISOString();
     }
     return date.slice(0, 10) === today;
   });
 
   return (
-    <div>
+    <div id="taskdate-box">
       {uniqueDateParts.map((date) => {
         const { day, month, isToday } = formatDate(date);
         return (

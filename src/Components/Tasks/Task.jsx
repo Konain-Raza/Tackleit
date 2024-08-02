@@ -8,7 +8,7 @@ import TaskShedule from "../TaskShedule/TaskShedule";
 import Loading from "../Loading/Loading";
 import { Cookies } from "react-cookie";
 import { ToastContainer, toast } from "react-toastify";
-import avatar from "../../assets/Images/avatar.jpg"
+import avatar from "../../assets/Images/avatar.jpg";
 const Task = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   const [todos, setTodos] = useState([]);
@@ -77,7 +77,7 @@ const Task = (props) => {
           </div>
         ) : (
           <div id="user-info-text">
-           <img src={photoUrl ? photoUrl : avatar} alt="User Avatar" />
+            <img src={photoUrl ? photoUrl : avatar} alt="User Avatar" />
             <div id="user-info-content">
               <h5>Welcome Back,</h5>
               <h3>{username}</h3>
@@ -95,66 +95,66 @@ const Task = (props) => {
           ></i>
         </div>
       </div>
-<div id="scroll-div">
-<div id="dates">
-        {loadingDates ? (
-          <div
-            className="loading-container"
-            style={{
-              width: "5%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <div className="loading-avatar"></div>
-          </div>
-        ) : (
-          <TaskShedule dates={uniqueDates} id="dates" />
-        )}
+      <div id="scroll-div">
+        <div id="dates">
+          {loadingDates ? (
+            <div
+              className="loading-container"
+              style={{
+                width: "5%",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <div className="loading-avatar"></div>
+            </div>
+          ) : (
+            <TaskShedule dates={uniqueDates}  />
+          )}
+        </div>
+
+        <div id="taskscol-row">
+          {loadingTodoTasks ? (
+            <Loading id="taskcol" />
+          ) : (
+            <div className="col">
+              <h1>To do 📋</h1>
+              <TasksColumns
+                title="To do"
+                tasks={todoTasks}
+                userid={uidFromCookie}
+              />
+            </div>
+          )}
+
+          {loadingOngoingTasks ? (
+            <Loading />
+          ) : (
+            <div className="col">
+              <h1>In Progress ⏳</h1>
+              <TasksColumns
+                title="Doing"
+                tasks={ongoingTasks}
+                userid={uidFromCookie}
+              />
+            </div>
+          )}
+
+          {loadingDoneTasks ? (
+            <Loading />
+          ) : (
+            <div className="col">
+              <h1>Done ✅</h1>
+              <TasksColumns
+                title="Done"
+                tasks={doneTasks}
+                userid={uidFromCookie}
+              />
+            </div>
+          )}
+        </div>
       </div>
-
-      <div id="taskscol-row">
-        {loadingTodoTasks ? (
-          <Loading id="taskcol" />
-        ) : (
-          <div className="col">
-            <h1>To do 📋</h1>
-            <TasksColumns
-              title="To do"
-              tasks={todoTasks}
-              userid={uidFromCookie}
-            />
-          </div>
-        )}
-
-        {loadingOngoingTasks ? (
-          <Loading />
-        ) : (
-          <div className="col">
-            <h1>In Progress ⏳</h1>
-            <TasksColumns
-              title="Doing"
-              tasks={ongoingTasks}
-              userid={uidFromCookie}
-            />
-          </div>
-        )}
-
-        {loadingDoneTasks ? (
-          <Loading />
-        ) : (
-          <div className="col">
-            <h1>Done ✅</h1>
-            <TasksColumns
-              title="Done"
-              tasks={doneTasks}
-              userid={uidFromCookie}
-            />
-          </div>
-        )}
-      </div>
-</div>
 
       {showAddTask && <Addtask userid={uidFromCookie} />}
       <ToastContainer

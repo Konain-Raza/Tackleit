@@ -18,3 +18,11 @@
     background-color: #2F2B43;
     color: white;
   }
+  #taskdate-box{
+    margin-top: 14vh;
+    height: 100%;
+    gap: 1vw;
+    align-items: center;
+    width: 100%;
+    display: flex;
+  }

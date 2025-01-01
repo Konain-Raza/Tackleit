@@ -53,7 +53,7 @@ const Task = (props) => {
     return () => unsubscribe();
   }, [uidFromCookie]);
 
-  const uniqueDates = [...new Set(todos.map((todo) => todo.dueTime))].filter(
+  const uniqueDates = [...new Set(todos && todos.filter((tasks)=>tasks.status !== "done").map((todo) => todo.dueTime))].filter(
     Boolean
   );
   const todoTasks = todos.filter((todo) => todo.status === "todo");
